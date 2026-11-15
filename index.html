@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="file.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h3>Bingo</h3>
+            <div class="themes-container">
+                <button class="theme-button" onclick="document.documentElement.setAttribute('color-scheme','default-light')" style="background-color: #D45757"></button>
+                <button class="theme-button" onclick="document.documentElement.setAttribute('color-scheme','default-dark')" style="background-color: #262D3C"></button>
+                <button class="theme-button" onclick="document.documentElement.setAttribute('color-scheme','mono-light')" style="background-color: white"></button>
+                <button class="theme-button" onclick="document.documentElement.setAttribute('color-scheme','mono-dark')" style="background-color: black"></button>
+                <button class="theme-button" onclick="document.documentElement.setAttribute('color-scheme','solarized-light')" style="background-color: #FDF6E3"></button>
+                <button class="theme-button" onclick="document.documentElement.setAttribute('color-scheme','solarized-dark')" style="background-color: #073642"></button>
+            </div>
+            <div id="setup" style="display:flex;flex-direction:column;align-items:center">
+                <p class="tagline" id="tagline">Play Bingo live with a friend</p>
+                <p id="join-info" style="display:none;margin:5px;font-weight:500;text-align:center"></p>
+                <section id="player-1-name">
+                    <label for="player1">Your Name:</label>
+                    <input type="text" id="player1" maxlength="20" placeholder="Enter your name">
+                </section>
+                <button id="create-room">Create Room</button>
+                <button id="join-room" style="display:none">Join Game</button>
+            </div>
+            <div id="room-info">
+                <span>Room <b id="room-code-label"></b></span>
+                <div class="invite-row">
+                    <input type="text" id="invite-link" readonly>
+                    <button id="copy-link">Copy Invite Link</button>
+                    <button id="share-link">Share with Friend</button>
+                </div>
+                <small id="invite-hint">For friends on another network, use the public game link configured by the host.</small>
+                <div id="players"></div>
+            </div>
+            <button id="start-game" style="display:none">Start Game</button>
+        </header>
+        <div class="spacer"></div>
+        <div class="status-container">
+            <h1 id="status-1" class="o" style="left: 50%">BINGO</h1>
+            <h1 id="status-2" class="o" style="left: 200%"></h1>
+        </div>
+        <div id="dash"></div>
+        <small id="msg"></small>
+        <small id="card-label">Your Bingo card</small>
+        <div class="box-container bingo-grid" id="board"></div>
+        <div id="claim-box"><h1>BINGO!</h1><button id="claim-btn">Claim Bingo</button></div>
+        <div id="actions"><button id="random-pick">Pick Random</button></div>
+        <div id="history-wrap"><small>Shared number history</small><div id="history"></div></div>
+        <div class="spacer" style="flex-grow: 2"></div>
+    </div>
+    <div id="toast"></div>
+    <div id="reveal"></div>
+</body>
+</html>
